@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
+    <script defer src="./script.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <table id="tableContact">
+            <thead>
+                <tr>
+                    <td>Name</td>
+                    <td>Phone</td>
+                    <td>Email</td>
+                    <td>Action</td>
+                </tr>
+            </thead>
+            <tbody id="contactList">
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td><input id="newInputName" type="text"></td>
+                    <td><input id="newInputPhone" type="text"></td>
+                    <td><input id="newInputEmail" type="text"></td>
+                    <td><button id="addContactBtn" >ADD</button></td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+    <script type="text/template" id="newContactTemlate" >
+        <tr class="newContactRow" data-contact-id="{{id}}">
+                <td>{{name}}</td>
+                <td>{{phone}}</td>
+                <td>{{email}}</td>
+                <td><button class="deleteBtn">X</button></td>
+        </tr>
+    </script>
+</body>
+</html>

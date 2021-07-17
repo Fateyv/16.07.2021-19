@@ -1,5 +1,5 @@
 const NEW_CONTACT_TEMPLATE = ``;
-const CONTACTS_URL = 'https://5dd3d5ba8b5e080014dc4bfa.mockapi.io/users'
+const CONTACTS_URL = 'https://5dd3d5ba8b5e080014dc4bfa.mockapi.io/users/'
 
 
 const template = document.getElementById('newContactTemlate').innerHTML;
@@ -30,7 +30,7 @@ function onDeleteButtonClick(event) {
 }
 
 function getContactId(el) {
-    return +el.closest('.newContactRow').dataset.contactId;
+    return el.closest('.newContactRow').dataset.contactId;
 }
 
 function init() {
@@ -100,8 +100,6 @@ function addContact(contact) {
     renderList(contacts)
 }
 
-
-
 function deleteContact(id) {
     fetch(CONTACTS_URL + id, {
         method: 'DELETE',
@@ -109,6 +107,8 @@ function deleteContact(id) {
         contacts = contacts.filter((item) => (item.id !== id));
         renderList(contacts)});
 }
+
+
 
 
 

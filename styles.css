@@ -38,3 +38,10 @@ td {
     border-radius: 15px;
 }
 
+.changeContactBtn {
+    margin-left: 10px;
+}
+
+.action {
+    background-color: red;
+}

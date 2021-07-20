@@ -1,4 +1,3 @@
-const NEW_CONTACT_TEMPLATE = ``;
 const CONTACTS_URL = 'https://5dd3d5ba8b5e080014dc4bfa.mockapi.io/users/'
 
 
@@ -10,8 +9,9 @@ const emailEl = document.getElementById('newInputEmail');
 const addContactForm = document.getElementById('addContactBtn')
 
 addContactForm.addEventListener('click', onAddContactFormSubmit);
-contactEl.addEventListener('click', onDeleteButtonClick)
-    
+contactEl.addEventListener('click', onDeleteButtonClick);
+contactEl.addEventListener('click', onChangeContactClick);
+
 let contacts = [];
 
 init();
@@ -28,6 +28,16 @@ function onDeleteButtonClick(event) {
         deleteContact(contactId);
     }
 }
+
+
+function onChangeContactClick(event) {
+    const contactId = getContactId(event.target);
+    if (event.target.classList.contains('changeContactBtn')) {
+        changeContact(contactId);
+        
+    }
+}
+
 
 function getContactId(el) {
     return el.closest('.newContactRow').dataset.contactId;
@@ -106,6 +116,22 @@ function deleteContact(id) {
     }).then(() => {
         contacts = contacts.filter((item) => (item.id !== id));
         renderList(contacts)});
+}
+
+function changeContact(id){
+    console.log(id);
+    const contact = contacts.find(item => item.id === id);
+    nameEl.value = contact.name
+    phoneEl.value = contact.phone
+    emailEl.value = contact.email
+
+    // fetch(CONTACTS_URL + id, {
+    //     method: 'PUT',
+    //     body: JSON.stringify(сontact),
+    //     headers: {
+    //         'Content-Type': 'application/json',
+    //     },
+    // })
 }
 
 
